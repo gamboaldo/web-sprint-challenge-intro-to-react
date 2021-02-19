@@ -2,6 +2,44 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+const StyledCharacter = styled.div`
+  /* External */
+  cursor: pointer;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 80rem;
+  /* internal*/
+  position: relative;
+  height: ${(props) => (props.expanded ? `22rem` : `5rem`)};
+  overflow: hidden;
+  transition: all 0.7s ease;
+
+  /* Colors and Styles */
+  background-color: white;
+  border-bottom: 1px solid #bbb;
+  opacity: 0.7;
+
+  h2 {
+    font-size: 2rem;
+    line-height: 5rem;
+    margin: 0;
+    padding-left: 2rem;
+    text-align: left;
+  }
+  span.arrow-down {
+    font-size: 2rem;
+    position: absolute;
+    top: ${(props) => (props.expanded ? "1.9rem" : "0.7rem")};
+    right: 2%;
+  }
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 2.2rem;
+    text-align: left;
+  }
+`;
+
 export default function Character({ name, gender, birthYear, height, mass }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -20,41 +58,3 @@ export default function Character({ name, gender, birthYear, height, mass }) {
     </StyledCharacter>
   );
 }
-
-const StyledCharacter = styled.div`
-  /* External */
-  cursor: pointer;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 80rem;
-  /* Internal */
-  position: relative;
-  height: ${(props) => (props.expanded ? `22rem` : `5rem`)};
-  overflow: hidden;
-  transition: all 0.7s ease;
-
-  /* Colors and Styles */
-  background-color: white;
-  border-bottom: 1px solid #bbb;
-  opacity: 0.7;
-  /*  Element Styles  */
-  h2 {
-    font-size: 2rem;
-    line-height: 5rem;
-    margin: 0;
-    padding-left: 2rem;
-    text-align: left;
-  }
-  span.arrow-down {
-    font-size: 2rem;
-    position: absolute;
-    top: ${(props) => (props.expanded ? "1.5rem" : "0.7rem")};
-    right: 2%;
-  }
-  p {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    padding-left: 2.2rem;
-    text-align: left;
-  }
-`;
